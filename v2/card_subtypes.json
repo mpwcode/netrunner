@@ -132,6 +132,10 @@
     "name": "Deflector"
   },
   {
+    "id": "department",
+    "name": "Department"
+  },
+  {
     "id": "destroyer",
     "name": "Destroyer"
   },
@@ -166,6 +170,10 @@
   {
     "id": "expansion",
     "name": "Expansion"
+  },
+  {
+    "id": "expendable",
+    "name": "Expendable"
   },
   {
     "id": "facility",

@@ -265,6 +265,17 @@
         }
       ]
     },
+    "layout_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["normal", "flip", "copy", "facade", "progression"]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "memory_cost": {
       "minimum": 0,
       "type": "integer"
@@ -277,6 +288,16 @@
       "minLength": 1,
       "type": "string",
       "enum": ["corp", "runner"]
+    },
+    "faces": {
+      "oneOf": [
+        {
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "strength": {
       "oneOf": [
@@ -330,5 +351,89 @@
     "title",
     "card_type_id",
     "is_unique"
-  ]
+  ],
+  "dependentSchemas": {
+    "layout_id": {
+      "oneOf": [
+        {
+          "properties": {
+            "layout_id": {
+              "oneOf": [
+                {
+                  "const": "normal"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "faces": {
+              "type": "null"
+            }
+          }
+        },
+        {
+          "properties": {
+            "layout_id": {
+              "const": "flip"
+            },
+            "faces": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": ["faces"]
+        },
+        {
+          "properties": {
+            "layout_id": {
+              "const": "copy"
+            },
+            "faces": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": ["faces"]
+        },
+        {
+          "properties": {
+            "layout_id": {
+              "const": "facade"
+            },
+            "faces": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": ["faces"]
+        },
+        {
+          "properties": {
+            "layout_id": {
+              "const": "progression"
+            },
+            "faces": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": ["faces"]
+        }
+      ]
+    }
+  }
 }
