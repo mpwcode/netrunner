@@ -30,7 +30,10 @@ for pack in packs:
     pdf.x=x_offset+padding
     pdf.y=top
     pdf.multi_cell(x_offset, 5, pack["date_release"],1,0)
+    pdf.x=(x_offset+padding)*2
+    pdf.y=top
+    pdf.multi_cell(x_offset, 5, pack["code"],1,0)
 
-
+pdf.multi_cell(150,5,str(packs),1,0)
 
 pdf.output('packs.pdf')
