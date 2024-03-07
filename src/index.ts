@@ -31,7 +31,7 @@ export function textToId(text: string): string {
     // Unicode Canonical Decomposition - switching single code points to multiple code points.
     .normalize('NFD')
     // remove non-ASCII
-    .replace(/\P{ASCII}/u, '')
+    .replace(/\P{ASCII}/gu, '')
     // replace 's followed by a space or end-of-line with s and the space/end match.
     .replace(/'s(\s|$)/gu, 's$1')
     // split along space or punction.
@@ -47,6 +47,7 @@ export const getCardSetTypesV2Json = makeV2Reader('card_set_types');
 export const getCardSetsV2Json = makeV2Reader('card_sets');
 export const getCardSubtypesV2Json = makeV2Reader('card_subtypes');
 export const getCardTypesV2Json = makeV2Reader('card_types');
+export const getCardLayoutsV2Json = makeV2Reader('card_layouts');
 export const getCyclesJson = makeV1Reader('cycles');
 export const getFactionsJson = makeV1Reader('factions');
 export const getFactionsV2Json = makeV2Reader('factions');

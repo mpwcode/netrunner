@@ -2,6 +2,7 @@
   "card_type_id": "program",
   "cost": 4,
   "deck_limit": 3,
+  "designed_by": "fantasy_flight_games",
   "faction_id": "criminal",
   "id": "sneakdoor_beta",
   "influence_cost": 3,
@@ -10,6 +11,6 @@
   "side_id": "runner",
   "stripped_text": "click: Run Archives. If that run would be declared successful, change the attacked server to HQ for the remainder of that run.",
   "stripped_title": "Sneakdoor Beta",
-  "text": "[click]: Run Archives. If that run would be declared successful, change the attacked server to HQ for the remainder of that run.",
+  "text": "[click]<strong>:</strong> Run Archives. If that run would be declared successful, change the attacked server to HQ for the remainder of that run.",
   "title": "Sneakdoor Beta"
 }

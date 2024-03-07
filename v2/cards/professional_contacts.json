@@ -2,6 +2,7 @@
   "card_type_id": "resource",
   "cost": 5,
   "deck_limit": 3,
+  "designed_by": "fantasy_flight_games",
   "faction_id": "shaper",
   "id": "professional_contacts",
   "influence_cost": 2,
@@ -10,6 +11,6 @@
   "stripped_text": "click: Gain 1 credit and draw 1 card.",
   "stripped_title": "Professional Contacts",
   "subtypes": ["connection"],
-  "text": "[click]: Gain 1[credit] and draw 1 card.",
+  "text": "[click]<strong>:</strong> Gain 1[credit] and draw 1 card.",
   "title": "Professional Contacts"
 }

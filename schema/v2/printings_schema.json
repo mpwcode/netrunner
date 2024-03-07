@@ -1,10 +1,92 @@
 {
   "$id": "https://github.com/netrunnerdb/netrunner-cards-json/blob/master/schema/v2/printings_schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "array",
   "items": {
-    "type": "object",
     "additionalProperties": false,
+    "dependentSchemas": {
+      "layout_id": {
+        "oneOf": [
+          {
+            "properties": {
+              "faces": {
+                "type": "null"
+              },
+              "layout_id": {
+                "oneOf": [
+                  {
+                    "const": "normal"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "properties": {
+              "faces": {
+                "items": {
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "layout_id": {
+                "const": "flip"
+              }
+            },
+            "required": ["faces"]
+          },
+          {
+            "properties": {
+              "faces": {
+                "items": {
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "layout_id": {
+                "const": "copy"
+              }
+            },
+            "required": ["faces"]
+          },
+          {
+            "properties": {
+              "faces": {
+                "items": {
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "layout_id": {
+                "const": "facade"
+              }
+            },
+            "required": ["faces"]
+          },
+          {
+            "properties": {
+              "faces": {
+                "items": {
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "layout_id": {
+                "const": "progression"
+              }
+            },
+            "required": ["faces"]
+          }
+        ]
+      }
+    },
     "properties": {
       "card_id": {
         "minLength": 1,
@@ -13,6 +95,20 @@
       "card_set_id": {
         "minLength": 1,
         "type": "string"
+      },
+      "copy_quantity": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "faces": {
+        "oneOf": [
+          {
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
       },
       "flavor": {
         "minLength": 1,
@@ -26,21 +122,28 @@
         "minLength": 1,
         "type": "string"
       },
+      "layout_id": {
+        "oneOf": [
+          {
+            "enum": ["normal", "flip", "copy", "facade", "progression"],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
       "position": {
         "minimum": 1,
         "type": "integer"
-      },
-      "printed_is_unique": {
-        "type": "boolean"
-      },
-      "printed_text": {
-        "type": "string"
       },
       "quantity": {
         "minimum": 1,
         "type": "integer"
       },
-      "stripped_printed_text": {
+      "released_by": {
+        "enum": ["fantasy_flight_games", "null_signal_games"],
+        "minLength": 1,
         "type": "string"
       }
     },
@@ -49,8 +152,10 @@
       "card_set_id",
       "id",
       "position",
-      "printed_is_unique",
-      "quantity"
-    ]
-  }
+      "quantity",
+      "released_by"
+    ],
+    "type": "object"
+  },
+  "type": "array"
 }
